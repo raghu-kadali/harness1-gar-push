@@ -42,4 +42,4 @@ pipeline:
                     projectID: spiritual-pride-484905-r1
                     imageName: us-central1-docker.pkg.dev/spiritual-pride-484905-r1/raghu-repo/rr
                     tags:
-                      - v1
+                      - v9
