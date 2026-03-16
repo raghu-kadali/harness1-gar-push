@@ -1,0 +1,45 @@
+pipeline:
+  name: padma
+  identifier: padma
+  projectIdentifier: SFTY_Training
+  orgIdentifier: default
+  tags: {}
+  properties:
+    ci:
+      codebase:
+        connectorRef: raghugitfinal
+        repoName: harness1-gar-push
+        build: <+input>
+  stages:
+    - stage:
+        name: k
+        identifier: k
+        description: ""
+        type: CI
+        spec:
+          cloneCodebase: true
+          caching:
+            enabled: true
+            override: false
+          platform:
+            os: Linux
+            arch: Amd64
+          runtime:
+            type: Cloud
+            spec:
+              size: small
+              imageSpec:
+                imageName: ubuntu-latest
+          execution:
+            steps:
+              - step:
+                  type: BuildAndPushGAR
+                  name: BuildAndPushGAR_1
+                  identifier: BuildAndPushGAR_1
+                  spec:
+                    connectorRef: gcpconnecterraghufinal
+                    host: us-central1-docker.pkg.dev/
+                    projectID: spiritual-pride-484905-r1
+                    imageName: us-central1-docker.pkg.dev/spiritual-pride-484905-r1/raghu-repo/rr
+                    tags:
+                      - v1
